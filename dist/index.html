@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ezo Lines - thoughts from the north</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@100;200;300;400&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script type="text/javascript" src="main.js"></script>
+
+        <div class="sidebar">
+            <div class="title">
+                <h1><a href="/">Ezo Lines</a></h1>
+                <h5>Thoughts from the north</h5>
+            </div>
+            <div class="sidebar-items">
+                <ul class="sidebar-items-list">
+                </ul>
+            </div>
+        </div>
+        
+        
+        <div class="content">
+            <div class="blog-back">
+                <div class="blog-spacer"></div>
+                <div class="blog-inner">
+                    <h5 class="blog-title">TITLE</h5>
+                    <p class="blog-date">DATE</p>
+                    <p class="blog-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget mi cursus, imperdiet tortor eu, efficitur neque. Phasellus varius libero vel erat commodo, vel porttitor ligula sodales. Suspendisse dui libero, commodo sit amet porttitor nec, eleifend quis odio. Aliquam rutrum laoreet fringilla. Aliquam erat volutpat. Praesent gravida quam velit. Aenean et orci sed risus malesuada ullamcorper. Vestibulum sed orci sodales, interdum augue sed, iaculis dolor.
+
+                        Curabitur at lectus sapien. Ut est ipsum, facilisis ac quam vel, imperdiet pretium lacus. Nullam efficitur tellus vitae lorem viverra, in sagittis felis accumsan. Praesent dui odio, varius nec turpis ac, rutrum tempus mauris. Fusce tempor arcu eu est gravida aliquet in in metus. Nunc eget sagittis justo. Ut id varius turpis. Integer id ultrices odio.
+
+                        Nam ac nunc purus. Sed eros nisi, rhoncus at dolor sed, commodo rhoncus purus. Fusce vehicula odio vel gravida accumsan. Nulla consectetur tincidunt placerat. Vestibulum euismod lorem lacus, ac auctor tellus euismod ac. Duis a vehicula ipsum. Donec pretium lobortis neque, non lacinia mi tristique sed.
+
+                        Etiam imperdiet, justo vitae vulputate molestie, risus metus commodo orci, a porttitor enim sem vitae enim. Donec sit amet nisi quis mauris gravida tincidunt. Fusce tortor erat, condimentum eu elit in, euismod ornare erat. Duis egestas, augue at feugiat placerat, massa libero fringilla sem, ut dignissim nunc tellus in leo. Ut ultrices leo sit amet lorem luctus molestie. Morbi fringilla, libero ut pulvinar vulputate, nibh odio posuere felis, eget rutrum turpis ex et felis. Suspendisse consequat ullamcorper dapibus. Donec sit amet consectetur sem, sed condimentum sapien. Morbi eu mattis metus, non porttitor quam. Fusce ac dignissim risus. Mauris turpis nisl, laoreet et euismod sit amet, vestibulum nec quam. Ut aliquam, lectus ac fermentum sollicitudin, nulla metus placerat turpis, vel auctor velit nibh eu nunc. Vestibulum elementum ligula in orci aliquam, ac sodales purus venenatis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent placerat semper risus nec fringilla.
+
+                        Suspendisse auctor libero quis ligula sodales hendrerit. Vestibulum urna lorem, iaculis id posuere eu, fringilla id tortor. In accumsan eu odio at maximus. Nulla mauris nisi, rutrum ac dui et, lacinia faucibus nulla. Praesent et faucibus lacus. Aliquam metus est, rhoncus et cursus vulputate, lacinia non nulla. Integer sit amet eros sed mauris molestie ornare ac a est. Vestibulum ut imperdiet purus. Aliquam scelerisque diam in ultrices lacinia. Duis dolor nisl, luctus in porttitor sed, facilisis ut ipsum. Vestibulum accumsan eros sit amet arcu dignissim, vel sollicitudin ligula hendrerit. Proin suscipit velit in porttitor interdum.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+    <style>
+
+        html {
+            background: #acdeff url(./assets/img/spring.jpg);
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 25px;
+            text-align: left;
+            overflow: hidden;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            height: 100vh;
+            width: 100vw;
+            backdrop-filter: blur(15px);
+            transition: all 0.5s;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h1 {
+            margin-block-start: 0;
+            margin-block-end: 0;
+            font-family: 'Fraunces', serif;
+            font-weight: 200;
+            font-size: 50px;
+            line-height: .8;
+        }
+
+        h1 a:visited,
+        h1 a:hover {
+            color: black;
+        }
+
+        h1::before {
+            display: block;
+            width: 40vw;
+            margin-left: -5vw;
+            margin-top: 50px;
+            height: 2px;
+            background-color: black;
+            content:'';
+        }
+
+        h5 {
+            font-weight: 100;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+
+        p {
+            font-size: 1rem;
+            color: white;
+            text-align: left;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 30%;
+            padding: 0 5vw;
+            opacity: .3;
+            transition: all 0.5s;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .sidebar:hover {
+            opacity: 1;
+        }
+
+        /* .sidebar > * {
+            flex: 1;
+        } */
+
+        .title {
+            height: auto;
+            width: 100%;
+        }
+
+        .sidebar-items {
+            background-color:  #acdeffb6;
+            width: 100%;
+            height: 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            margin: 30px 15px;
+        }
+
+        .sidebar-items-list {
+            padding: 0;
+            width: 100%;
+            margin: 10px;
+            height: 100%;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-evenly;
+            overflow-y: auto;
+        }
+
+        .sidebar-items-list li a, 
+        .sidebar-items-list li a:visited {
+            font-size: 18px;
+            color: black;
+            margin: 5px;
+            transition: color 0.3s;
+        }
+
+        .sidebar-items-list li a:hover,
+        .sidebar-items-list li a:active {
+            color: white;
+        }
+
+        .list-item {
+            width:90%;
+            margin: auto;
+        }
+
+        .list-item-title {
+            float: left;
+        }
+
+        .list-item-date {
+            float: right;
+            font-size: 14px;
+        }
+
+        .content {
+            height: 100%;
+            width: 60%;
+        }
+
+        .blog-back {
+            width: 100%;
+            height: 100%;
+            /* overflow-y: auto; */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: rgba(0, 0, 0, 0.685);
+            position: relative;
+        }
+
+        .blog-spacer {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .blog-spacer::after {
+            display: block;
+            width: 90%;
+            height: 2px;
+            margin-top: 50px;
+            background-color: white;
+            content:'';
+        }
+
+        .blog-inner {
+            width: 100%;
+            height: auto;
+            overflow-y: auto;
+        }
+
+        .blog-inner > * {
+            margin: 5px;
+        }
+
+        .blog-title,
+        .blog-date {
+            color: grey;
+            margin-left: 20px;
+        }
+
+        .blog-date {
+            font-size: 15px;
+        }
+
+        @media only screen and (max-width: 800px) {
+            body {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            h1:before {
+                margin-top: 5px;
+                width: 100%;
+            }
+
+            .title {
+                width: 30%;
+                height: 100%;
+            }
+
+            .content {
+                height: 79vh;
+                width: 100%;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: 20vh;
+                flex-direction: row;
+                align-items: center;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .sidebar > * {
+                flex: 1;
+            }
+
+            .sidebar-items {
+                margin: 10px;
+            }
+            
+            .sidebar-items-list {
+                justify-content: flex-start;
+            }
+
+            .blog-spacer::after {
+                margin-top: 5px;
+            }
+        }
+
+        
+        
+    </style>
+
+</body>
+</html>
