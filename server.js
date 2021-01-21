@@ -3,18 +3,16 @@ const app = express();
 const path = require('path');
 const port = process.env.PORT || 3001;
 
-const posts = require('./src/assets/posts/posts.json');
-
 app.disable('etag');
 app.use(express.static('./dist'));
 
-app.get('/posts', (req, res) => {
-  console.log('posts get');
+// app.get('/posts', (req, res) => {
+//   console.log('posts get');
 
-  console.log(posts);
-    
-  res.send(posts);
-});
+//   console.log(posts);
+
+//   res.send(posts);
+// });
 
 // app.get('post/:id', (req, res) => { 
 //   res.send(posts);

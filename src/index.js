@@ -1,14 +1,12 @@
-import axios from 'axios';
+import data from './assets/posts/posts.json';
 
 async function init() {
 
     console.log('init');
 
-    const res = await axios.get('/posts');
+    console.log('posts: ', data.posts);
 
-    const posts = res.data.posts;
-
-    console.log('posts: ', posts);
+    const posts = data.posts;
 
     const doc = document.querySelector('html');
     const mainPost = document.querySelector('.blog-text');
@@ -38,13 +36,13 @@ async function init() {
         const month = now.getMonth();
     
         if (month > 10 || month < 3) {
-            doc.style.background = `#acdeff url(./assets/img/winter.jpg)`;
+            doc.style.background = `#acdeff url(https://images.unsplash.com/photo-1545014393-76c7b8936c76?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1955&q=80)`;
         } else if (month < 6) {
-            doc.style.background = `#acdeff url(./assets/img/spring.jpg)`;
+            doc.style.background = `#acdeff url(https://images.unsplash.com/photo-1603435580027-f30889418372?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80)`;
         } else if (month < 9) {
-            doc.style.background = `#acdeff url(./assets/img/summer.jpg)`;
+            doc.style.background = `#acdeff url(https://images.unsplash.com/photo-1545361682-831ddf84b29d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80)`;
         } else {
-            doc.style.background = `#acdeff url(./assets/img/fall.jpg)`;
+            doc.style.background = `#acdeff url(https://images.unsplash.com/photo-1573718893672-86144926f4fb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)`;
         }
     
         doc.style.backgroundSize = 'cover';
