@@ -9,8 +9,10 @@ app.disable('etag');
 app.use(express.static('./dist'));
 
 app.get('/posts', (req, res) => {
-  // console.log('posts get');
-  
+  console.log('posts get');
+
+  console.log(posts);
+    
   res.send(posts);
 });
 
@@ -19,7 +21,7 @@ app.get('/posts', (req, res) => {
 // });
 
 app.get('*', (req, res) => {
-  // console.log('main get');
+  console.log('main get');
 
   res.sendFile(path.resolve(__dirname, './dist', 'index.html'));
 });
