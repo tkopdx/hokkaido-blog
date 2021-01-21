@@ -5,6 +5,7 @@ const port = process.env.PORT || 3001;
 
 const posts = require('./src/assets/posts/posts.json');
 
+app.disable('etag');
 app.use(express.static('./dist'));
 
 app.get('/posts', (req, res) => {
