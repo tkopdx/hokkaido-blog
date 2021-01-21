@@ -3,20 +3,17 @@ const app = express();
 const path = require('path');
 const port = process.env.PORT || 3001;
 
-app.disable('etag');
+app.use(function noCachePlease(req, res, next) {
+  if (req.url === '/') {
+    res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+    res.header("Pragma", "no-cache");
+    res.header("Expires", 0);
+  }
+
+  next();
+});
+
 app.use(express.static('./dist'));
-
-// app.get('/posts', (req, res) => {
-//   console.log('posts get');
-
-//   console.log(posts);
-
-//   res.send(posts);
-// });
-
-// app.get('post/:id', (req, res) => { 
-//   res.send(posts);
-// });
 
 app.get('*', (req, res) => {
   console.log('main get');
