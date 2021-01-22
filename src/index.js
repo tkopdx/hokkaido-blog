@@ -56,10 +56,11 @@ async function init() {
         const regTrailingQuotes = new RegExp("(?<=[.,?!])'", 'g');
         
         if (posts[ind]) {
-            mainPost.innerHTML = posts[ind].post.replace(regTrailingQuotes, '" ').replace(regLeadingQuotes, ' "');
-            mainPost.insertAdjacentHTML('beforeend', posts[ind].jp);
-            postDate.innerText = posts[ind].date;
-            postTitle.innerText = posts[ind].title;
+            // mainPost.innerHTML = posts[ind].post.replace(regTrailingQuotes, '" ').replace(regLeadingQuotes, ' "');
+            // mainPost.insertAdjacentHTML('beforeend', posts[ind].jp);
+            // postDate.innerText = posts[ind].date;
+            // postTitle.innerText = posts[ind].title;
+            postTitle.innerText = `Hey! if you can read me i'm working on mobile!`
         } else {
             mainPost.innerText = `Sorry! No post matches that id.`
         }
