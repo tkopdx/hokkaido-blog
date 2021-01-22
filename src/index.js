@@ -27,6 +27,8 @@ async function init() {
     } else {
         setPost(posts.length - 1);
     }
+
+    document.querySelector('.blog-date').innerText = `hey hey hey`; 
     
     function setBackground() {
         console.log('back set');
