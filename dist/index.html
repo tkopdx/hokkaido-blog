@@ -200,6 +200,7 @@
             align-items: flex-start;
             background-color: rgba(0, 0, 0, 0.685);
             position: relative;
+            transition: all 0.3s;
         }
 
         .blog-spacer {
@@ -224,7 +225,7 @@
         }
 
         .blog-inner > * {
-            margin: 5px;
+            margin: 10px;
         }
 
         .blog-title,
@@ -235,6 +236,22 @@
 
         .blog-date {
             font-size: 15px;
+        }
+
+        .blog-text {
+            margin-bottom: 50px;
+        }
+
+        .fullscreen {
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .hide {
+            width: 0;
+            height: 0;
+            padding: 0;
+            transition: all 0.3s;
         }
 
         @media only screen and (max-width: 800px) {
@@ -286,6 +303,16 @@
 
             .blog-spacer::after {
                 margin-top: 5px;
+            }
+
+            .fullscreen {
+                height: 100%;
+            }
+
+            .hide {
+                width: 0;
+                height: 0;
+                padding: 0;
             }
         }
 
