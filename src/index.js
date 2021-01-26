@@ -23,15 +23,6 @@ function init() {
     sidebar.addEventListener('mouseout', addBlur);
     window.onhashchange = hashHandler;
     blogInner.addEventListener('scroll', scrollHandler);
-
-    setBackground();
-
-    if (location.hash) {
-        console.log('not the home page');
-        setPost(location.hash.replace('#', ''));
-    } else {
-        setPost(posts.length - 1);
-    }
     
     function setBackground() {
         console.log('back set');
@@ -133,6 +124,17 @@ function init() {
         id ? null : id = posts.length - 1;
     
         setPost(id);
+    }
+
+    //basic setup
+
+    setBackground();
+
+    if (location.hash) {
+        console.log('not the home page');
+        setPost(location.hash.replace('#', ''));
+    } else {
+        setPost(posts.length - 1);
     }
 }
 
