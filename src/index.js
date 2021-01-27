@@ -23,6 +23,9 @@ function init() {
     sidebar.addEventListener('mouseout', addBlur);
     window.onhashchange = hashHandler;
     blogInner.addEventListener('scroll', scrollHandler);
+    blogInner.addEventListener('mousedown', toggleScroll);
+    blogInner.addEventListener('mouseup', toggleScroll);
+    blogInner.addEventListener('mousemove', (e) => scroll && scrollHandler(e));
     
     function setBackground() {
         console.log('back set');
@@ -97,20 +100,38 @@ function init() {
         document.querySelector('body').style.backdropFilter = `blur(15px)`;
     }
 
+    let scroll = false;
+
+    function toggleScroll() {
+        scroll = !scroll;
+    }
+
     function scrollHandler(e) {
         console.log(e.target.scrollTop);
 
         const dir = w > 800 ? 'X' : 'Y';
 
         if (e.target.scrollTop > 0 && e.target.scrollTop < 100) {
-            sidebar.style.transform = `translate${dir}(-${e.target.scrollTop}%)`;
+            const sidePerc = 100 - e.target.scrollTop;
+            const contentPerc = e.target.scrollTop + 60; 
+
+            if (sidePerc > 40) sidePerc = 40;
+            if (contentPerc < 60) contentPerc = 60;
+
+            sidebar.style.flexBasis = `${sidePerc}%`;
+            content.style.flexBasis = `${contentPerc}%`
         } else if (e.target.scrollTop >= 100) {
             content.classList.add('fullscreen');
             sidebar.classList.add('hide');
+
+            sidebar.style.flexBasis = `0`;
+            content.style.flexBasis = `200%`
         } else {
             content.classList.remove('fullscreen');
             sidebar.classList.remove('hide');
-            sidebar.style.transform = `unset`;
+
+            sidebar.style.flexBasis = `40%`;
+            content.style.flexBasis = `60%`;
         }
     }
 

@@ -90,7 +90,7 @@
 
         h1::before {
             display: block;
-            width: 40vw;
+            width: 112.5%;
             margin-left: -5vw;
             margin-top: 50px;
             height: 2px;
@@ -112,10 +112,9 @@
 
         .sidebar {
             height: 100%;
-            width: 30%;
-            padding: 0 5vw;
+            flex-basis: 40%;
             opacity: .3;
-            transition: all 0.5s;
+            transition: all 0.3s;
             display: flex;
             justify-content: center;
             flex-direction: column;
@@ -137,13 +136,13 @@
 
         .sidebar-items {
             background-color:  #acdeffb6;
-            width: 100%;
+            width: 90%;
             height: 70%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex: 1;
-            margin: 30px 15px;
+            margin: 30px auto;
         }
 
         .sidebar-items-list {
@@ -188,7 +187,8 @@
 
         .content {
             height: 100%;
-            width: 60%;
+            flex-basis: 60%;
+            transition: all 0.3s;
         }
 
         .blog-back {
@@ -243,7 +243,9 @@
         }
 
         .fullscreen {
+            max-width: none;
             width: 100%;
+            flex-basis: unset;
             transition: all 0.3s;
         }
 
@@ -251,6 +253,7 @@
             width: 0;
             height: 0;
             padding: 0;
+            flex-basis: 0;
             transition: all 0.3s;
         }
 
@@ -307,13 +310,9 @@
 
             .fullscreen {
                 height: 100%;
+                max-height: none;
             }
 
-            .hide {
-                width: 0;
-                height: 0;
-                padding: 0;
-            }
         }
 
         
