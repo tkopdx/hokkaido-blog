@@ -109,8 +109,8 @@ function init() {
         // const dir = w > 800 ? 'X' : 'Y';
 
         if (e.target.scrollTop > 0 && e.target.scrollTop < 100) {
-            let sidePerc = 100 - e.target.scrollTop;
-            let contentPerc = e.target.scrollTop + 60; 
+            var sidePerc = 100 - e.target.scrollTop;
+            var contentPerc = e.target.scrollTop + 60; 
 
             if (sidePerc > 40) sidePerc = 40;
             if (contentPerc < 60) contentPerc = 60;
