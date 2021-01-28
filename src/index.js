@@ -51,11 +51,11 @@ function init() {
 
         console.log('settting post with index: ', ind);
 
-        const regLeadingQuotes = new RegExp("'(?=[A-Z])", 'g');
-        const regTrailingQuotes = new RegExp("(?<=[.,?!])'", 'g');
+        // const regLeadingQuotes = new RegExp("", 'g');
+        // const regTrailingQuotes = new RegExp("", 'g');
         
         if (posts[ind]) {
-            mainPost.innerHTML = posts[ind].post.replace(regTrailingQuotes, '" ').replace(regLeadingQuotes, ' "');
+            mainPost.innerHTML = posts[ind].post.replace(/'(?=[A-Z])/g, '"').replace(/(?<=[.,?!])'/g, '"');
             mainPost.insertAdjacentHTML('beforeend', posts[ind].jp);
             postDate.innerText = posts[ind].date;
             postTitle.innerText = posts[ind].title;
