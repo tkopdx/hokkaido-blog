@@ -50,12 +50,9 @@ function init() {
     function setPost(ind) {
 
         console.log('settting post with index: ', ind);
-
-        // const regLeadingQuotes = new RegExp("", 'g');
-        // const regTrailingQuotes = new RegExp("", 'g');
         
         if (posts[ind]) {
-            mainPost.innerHTML = posts[ind].post.replace(/'(?=[A-Z])/g, '"').replace(/(?<=[.,?!])'/g, '"');
+            mainPost.innerHTML = posts[ind].post;
             mainPost.insertAdjacentHTML('beforeend', posts[ind].jp);
             postDate.innerText = posts[ind].date;
             postTitle.innerText = posts[ind].title;
