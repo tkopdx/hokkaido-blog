@@ -109,11 +109,8 @@ function init() {
         // const dir = w > 800 ? 'X' : 'Y';
 
         if (e.target.scrollTop > 0 && e.target.scrollTop < 100) {
-            var sidePerc = 100 - e.target.scrollTop;
-            var contentPerc = e.target.scrollTop + 60; 
-
-            if (sidePerc > 40) sidePerc = 40;
-            if (contentPerc < 60) contentPerc = 60;
+            const sidePerc = 100 - e.target.scrollTop > 40 ? 40 : 100 - e.target.scrollTop;
+            const contentPerc = e.target.scrollTop + 60 < 60 ? 60 : e.target.scrollTop + 60; 
 
             sidebar.style.flexBasis = `${sidePerc}%`;
             content.style.flexBasis = `${contentPerc}%`
