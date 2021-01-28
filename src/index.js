@@ -109,11 +109,11 @@ function init() {
     function scrollHandler(e) {
         console.log(e.target.scrollTop);
 
-        const dir = w > 800 ? 'X' : 'Y';
+        // const dir = w > 800 ? 'X' : 'Y';
 
         if (e.target.scrollTop > 0 && e.target.scrollTop < 100) {
-            const sidePerc = 100 - e.target.scrollTop;
-            const contentPerc = e.target.scrollTop + 60; 
+            let sidePerc = 100 - e.target.scrollTop;
+            let contentPerc = e.target.scrollTop + 60; 
 
             if (sidePerc > 40) sidePerc = 40;
             if (contentPerc < 60) contentPerc = 60;
