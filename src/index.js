@@ -109,7 +109,7 @@ function init() {
 
         // console.log(scrollPerc);
         
-        if (scrollPerc > prev) {
+        if (scrollPerc > prev && e.target.scrollTop > 15) {
             // console.log('scrolling down, classes set to fullscreen mode');
             
             content.classList.add('fullscreen');
