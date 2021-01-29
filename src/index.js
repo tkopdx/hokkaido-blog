@@ -2,11 +2,9 @@ import data from './assets/posts/posts.json';
 
 function init() {
 
-    console.log('init');
+    // console.log('init');
 
-    console.log('posts: ', data.posts);
-
-    const w = window.innerWidth;
+    // console.log('posts: ', data.posts);
 
     const posts = data.posts;
 
@@ -22,13 +20,13 @@ function init() {
     sidebar.addEventListener('mouseover', removeBlur);
     sidebar.addEventListener('mouseout', addBlur);
     window.onhashchange = hashHandler;
-    blogInner.addEventListener('scroll', scrollHandler);
+    blogInner.addEventListener('scroll', debounce(scrollHandler));
     blogInner.addEventListener('mousedown', toggleScroll);
     blogInner.addEventListener('mouseup', toggleScroll);
-    blogInner.addEventListener('mousemove', (e) => scroll && scrollHandler(e));
+    blogInner.addEventListener('mousemove', (e) => scroll && debounce(scrollHandler(e)));
     
     function setBackground() {
-        console.log('back set');
+        // console.log('back set');
 
         const now = new Date();
     
@@ -49,7 +47,7 @@ function init() {
     
     function setPost(ind) {
 
-        console.log('settting post with index: ', ind);
+        // console.log('settting post with index: ', ind);
         
         if (posts[ind]) {
             mainPost.innerHTML = posts[ind].post;
@@ -61,7 +59,7 @@ function init() {
         }
         
 
-        console.log(typeof ind);
+        // console.log(typeof ind);
 
         setItemsList(parseInt(ind, 10));
     }
@@ -70,7 +68,7 @@ function init() {
 
         clearItemsList();
 
-        console.log('cleared items');
+        // console.log('cleared items');
 
         const items = posts.reduce((acc, post) => {
             acc.push(`<li class="list-item" data-id="${post.id}"><a class="post-link" href="#${post.id}"><span class="list-item-title">${post.title}</span><br><span class="list-item-date">${post.date}</span></a></li>`);
@@ -81,7 +79,7 @@ function init() {
     }
 
     function clearItemsList() {
-        console.log('clearing items');
+        // console.log('clearing items');
         
         while (itemsList.firstChild) {
             itemsList.removeChild(itemsList.firstChild);
@@ -89,7 +87,7 @@ function init() {
     }
 
     function removeBlur() {
-        console.log('hovered');
+        // console.log('hovered');
         document.querySelector('body').style.backdropFilter = `blur(5px)`;
     }
     
@@ -103,42 +101,60 @@ function init() {
         scroll = !scroll;
     }
 
+    let prev = 0;
+
     function scrollHandler(e) {
-        console.log(e.target.scrollTop);
 
-        // const dir = w > 800 ? 'X' : 'Y';
+        const scrollPerc = e.target.scrollTop / e.target.scrollHeight;
 
-        if (e.target.scrollTop > 0 && e.target.scrollTop < 100) {
-            const sidePerc = 100 - e.target.scrollTop > 40 ? 40 : 100 - e.target.scrollTop;
-            const contentPerc = e.target.scrollTop + 60 < 60 ? 60 : e.target.scrollTop + 60; 
-
-            sidebar.style.flexBasis = `${sidePerc}%`;
-            content.style.flexBasis = `${contentPerc}%`
-        } else if (e.target.scrollTop >= 100) {
+        // console.log(scrollPerc);
+        
+        if (scrollPerc > prev) {
+            // console.log('scrolling down, classes set to fullscreen mode');
+            
             content.classList.add('fullscreen');
             sidebar.classList.add('hide');
 
             sidebar.style.flexBasis = `0`;
             content.style.flexBasis = `200%`
         } else {
+            // console.log('scrolling up, reset classes');
+
             content.classList.remove('fullscreen');
             sidebar.classList.remove('hide');
 
             sidebar.style.flexBasis = `40%`;
             content.style.flexBasis = `60%`;
         }
+
+        prev = scrollPerc;
     }
 
     function hashHandler() {
-        console.log('the hash changed!', location.hash);
+        // console.log('the hash changed!', location.hash);
     
         let id = location.hash.replace('#', '');
     
-        console.log(id);
+        // console.log(id);
 
         id ? null : id = posts.length - 1;
     
         setPost(id);
+    }
+
+    function debounce(func, wait = 20, immediate = true) {
+        var timeout;
+        return function() {
+          var context = this, args = arguments;
+          var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+          };
+          var callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+          if (callNow) func.apply(context, args);
+        };
     }
 
     //basic setup
@@ -146,7 +162,7 @@ function init() {
     setBackground();
 
     if (location.hash) {
-        console.log('not the home page');
+        // console.log('not the home page');
         setPost(location.hash.replace('#', ''));
     } else {
         setPost(posts.length - 1);
